@@ -1,9 +1,44 @@
 <html>
-  <header>
-  
-  </header>
+
+<header>
+  <title>
+    json2thrift
+
+  </title>
+  <script src='converter.js'></script>
+
+</header>
 <body>
-  <h2>json2thrift</h2>
-  <textarea />
-  </body>
+<h2>json2thrift</h2>
+<textarea id='input' style='width: 700px;height: 500px'>
+
+
+</textarea>
+<div>
+  <button id='btn_convert'>convert!</button>
+
+</div>
+<div>
+  <textarea id='output' style='width: 700px;height: 500px'></textarea>
+
+</div>
+
+
+<script>
+  let textarea = document.querySelector('#input');
+  let out = document.querySelector('#output');
+  document.querySelector('#btn_convert').addEventListener('click', () => {
+    try {
+
+      let outstr = print(convert(JSON.parse(textarea.value)));
+      out.value = outstr;
+
+    } catch (e) {
+      out.value = e.message + '\n' + e.stack;
+
+    }
+  });
+</script>
+
+</body>
 </html>

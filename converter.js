@@ -72,3 +72,5 @@ return `    ${define.index}: required ${define.type} ${define.name}`
   }).join('\n\n')
 
 }
+
+console.log('a');
